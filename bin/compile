@@ -55,5 +55,8 @@ fi
 # Build the site
 echo "\n-----> Building the site"
 cd $BUILD_DIR
+git submodule init
+git submodule update
+
 mkdir -p static | indent
 $CACHE_DIR/hugo | indent
