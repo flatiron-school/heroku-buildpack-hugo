@@ -58,3 +58,6 @@ cd $BUILD_DIR
 
 mkdir -p static | indent
 $CACHE_DIR/hugo | indent
+
+ls -al
+ls -al static
