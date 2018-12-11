@@ -69,7 +69,7 @@ mv $BUILD_DIR/immersive $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/lessons $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/teacher-training $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/hugo/prod-config.toml $BUILD_DIR/config.toml | indent
-# ls -ral $BUILD_DIR/content/*
+mv $BUILD_DIR/hugo/server.js $BUILD_DIR/server.js | indent
 
 # Build the site
 echo "\n-----> Building the site"
