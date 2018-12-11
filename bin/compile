@@ -52,6 +52,7 @@ if [ -e $BUILD_DIR/hugo/.hugotheme ]; then
 	git clone $THEME_URL school-docdock
 fi
 
+ls -al
 # Build the site
 echo "\n-----> Building the site"
 cd $BUILD_DIR
