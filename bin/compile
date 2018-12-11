@@ -58,11 +58,18 @@ fi
 echo "\n-----> Building the site"
 cd $BUILD_DIR
 
+echo "\n-----> Creating content folder"
 mkdir -p content | indent
+mv $BUILD_DIR/assets $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/fasttrack $BUILD_DIR/content/ | indent
+mv $BUILD_DIR/immersive $BUILD_DIR/content/ | indent
+mv $BUILD_DIR/lessons $BUILD_DIR/content/ | indent
+mv $BUILD_DIR/teacher-training $BUILD_DIR/content/ | indent
+mv $BUILD_DIR/hugo/prod-config.toml $BUILD_DIR/config.toml | indent
+ls -ral $BUILD_DIR/content/*
 
 mkdir -p static | indent
 $CACHE_DIR/hugo | indent
 
-ls -al
+ls -al content
 ls -al public
