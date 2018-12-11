@@ -54,15 +54,12 @@ if [ -e $BUILD_DIR/hugo/.hugotheme ]; then
 	git clone $THEME_URL school-docdock
 fi
 
-ls -al
 # Build the site
 echo "\n-----> Building the site"
 cd $BUILD_DIR
-./bin/hugo version | indent
-cat config.toml
 
-# mv hugo/config.toml ./
-# mv hugo/server.js ./
+mkdir -p content | indent
+mv $BUILD_DIR/fasttrack $BUILD_DIR/content/ | indent
 
 mkdir -p static | indent
 $CACHE_DIR/hugo | indent
