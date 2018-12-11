@@ -1,15 +1,5 @@
 #!/bin/sh
 
-# BUILD_DIR=$1
-# echo "DETECTING FOR HUGO"
-# mv $BUILD_DIR/hugo/config.toml ./
-
-# CONFIG_FILE="$(ls $BUILD_DIR | grep config)"
-
-# if [ -z $CONFIG_FILE ]; then
-# 	echo "\n-----> Hugo expects to find a config file in the root of the source directory! please include a config.toml, config.yaml or config.json file"
-# 	exit 1
-# fi
-
+# since we own all of this process, we're just gonna say detection is fine.
 echo "Hugo"
 exit 0

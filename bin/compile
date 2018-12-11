@@ -55,9 +55,10 @@ fi
 # Build the site
 echo "\n-----> Building the site"
 cd $BUILD_DIR
+mv hugo/config.toml ./
+mv hugo/server.js ./
 
 mkdir -p static | indent
 $CACHE_DIR/hugo | indent
 
 ls -al
-ls -al static
