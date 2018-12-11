@@ -46,9 +46,6 @@ tar -zxvf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR | indent
 echo "\n-----> Hugo version is: "
 $CACHE_DIR/hugo version | indent
 
-echo "\n-----> Moving Hugo to $BUILD_DIR/bin/hugo"
-mv $CACHE_DIR/hugo $BUILD_DIR/bin/hugo | indent
-
 echo "\n-----> Getting the theme"
 THEME_URL="$(cat $BUILD_DIR/hugo/.hugotheme)"
 rm -rf $BUILD_DIR/themes && mkdir $BUILD_DIR/themes && cd $BUILD_DIR/themes
@@ -70,4 +67,4 @@ mv $BUILD_DIR/hugo/server.js $BUILD_DIR/server.js | indent
 
 # Build the site
 echo "\n-----> Building the site"
-./bin/hugo | indent
+$CACHE_DIR/hugo | indent
