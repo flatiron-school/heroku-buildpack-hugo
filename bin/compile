@@ -63,3 +63,4 @@ mkdir -p static | indent
 $CACHE_DIR/hugo | indent
 
 ls -al
+ls -al public
