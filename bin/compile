@@ -66,7 +66,7 @@ mkdir -p content | indent
 # mv $BUILD_DIR/hugo/prod-config.toml $BUILD_DIR/config.toml | indent
 # mv $BUILD_DIR/hugo/server.js $BUILD_DIR/server.js | indent
 
-source $BUILD_DIR/hugo/copy.sh
+. $BUILD_DIR/hugo/copy.sh
 
 # Build the site
 echo "\n-----> Building the site"
