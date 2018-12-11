@@ -57,15 +57,6 @@ mkdir -p static | indent
 
 echo "\n-----> Creating content folder"
 mkdir -p content | indent
-# mv $BUILD_DIR/assets $BUILD_DIR/content/ | indent
-# mv $BUILD_DIR/fasttrack $BUILD_DIR/content/ | indent
-# mv $BUILD_DIR/immersive $BUILD_DIR/content/ | indent
-# mv $BUILD_DIR/lessons $BUILD_DIR/content/ | indent
-# mv $BUILD_DIR/teacher-training $BUILD_DIR/content/ | indent
-# mv $BUILD_DIR/_index.md $BUILD_DIR/content/ | indent
-# mv $BUILD_DIR/hugo/prod-config.toml $BUILD_DIR/config.toml | indent
-# mv $BUILD_DIR/hugo/server.js $BUILD_DIR/server.js | indent
-
 . $BUILD_DIR/hugo/copy.sh
 
 # Build the site
