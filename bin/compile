@@ -42,9 +42,12 @@ fi
 echo "\n-----> Extracting Hugo ${HUGO_VERSION} binaries to ${BUILD_DIR}"
 mkdir -p $CACHE_DIR/$RELEASE_NAME | indent
 tar -zxvf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR | indent
+
+echo "\n-----> Hugo version is: "
 $CACHE_DIR/hugo version | indent
-#mv $CACHE_DIR/hugo $BUILD_DIR/hugo | indent
-# $BUILD_DIR/hugo version | indent
+
+echo "\n-----> Moving Hugo to $BUILD_DIR/bin/hugo"
+mv $CACHE_DIR/hugo $BUILD_DIR/bin/hugo | indent
 
 # Fetch a theme specified in the .hugotheme file
 if [ -e $BUILD_DIR/hugo/.hugotheme ]; then
@@ -52,11 +55,11 @@ if [ -e $BUILD_DIR/hugo/.hugotheme ]; then
 	THEME_URL="$(cat $BUILD_DIR/hugo/.hugotheme)"
 	rm -rf $BUILD_DIR/themes && mkdir $BUILD_DIR/themes && cd $BUILD_DIR/themes
 	git clone $THEME_URL school-docdock
+	echo "\n"
 fi
 
-# Build the site
-echo "\n-----> Building the site"
 cd $BUILD_DIR
+mkdir -p static | indent
 
 echo "\n-----> Creating content folder"
 mkdir -p content | indent
@@ -66,10 +69,8 @@ mv $BUILD_DIR/immersive $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/lessons $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/teacher-training $BUILD_DIR/content/ | indent
 mv $BUILD_DIR/hugo/prod-config.toml $BUILD_DIR/config.toml | indent
-ls -ral $BUILD_DIR/content/*
+# ls -ral $BUILD_DIR/content/*
 
-mkdir -p static | indent
-$CACHE_DIR/hugo | indent
-
-ls -al content
-ls -al public
+# Build the site
+echo "\n-----> Building the site"
+./bin/hugo | indent
