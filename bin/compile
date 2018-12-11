@@ -34,6 +34,8 @@ mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
 	echo "\n-----> Fetching Hugo ${HUGO_VERSION} binaries at ${HUGO_PACKAGE}"
 	curl $HUGO_PACKAGE -L -s -o $CACHE_DIR/$FILE_NAME | indent
+else
+	echo "\n-----> Hugo ${HUGO_VERSION} binaries already at ${HUGO_PACKAGE}"
 fi
 
 # Extract the binary in the working directory
@@ -41,7 +43,7 @@ echo "\n-----> Extracting Hugo ${HUGO_VERSION} binaries to ${BUILD_DIR}"
 mkdir -p $CACHE_DIR/$RELEASE_NAME | indent
 tar -zxvf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR | indent
 $CACHE_DIR/hugo version | indent
-# mv $CACHE_DIR/hugo $BUILD_DIR/hugo | indent
+#mv $CACHE_DIR/hugo $BUILD_DIR/hugo | indent
 # $BUILD_DIR/hugo version | indent
 
 # Fetch a theme specified in the .hugotheme file
@@ -56,6 +58,9 @@ ls -al
 # Build the site
 echo "\n-----> Building the site"
 cd $BUILD_DIR
+./bin/hugo version | indent
+cat config.toml
+
 # mv hugo/config.toml ./
 # mv hugo/server.js ./
 
