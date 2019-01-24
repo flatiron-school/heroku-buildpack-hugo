@@ -61,4 +61,4 @@ echo "\n-----> Creating content folder"
 
 # Build the site
 echo "\n-----> Building the site"
-$CACHE_DIR/hugo | indent
+$CACHE_DIR/hugo --config $BUILD_DIR/hugo/config.toml | indent
